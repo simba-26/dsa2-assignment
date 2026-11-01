@@ -1,6 +1,6 @@
 # Author: Surinder Matharu
-# Date Last Modified: 30-Oct-2026
-# Purpose: This Python file acts as a foundation for the maze. It supports the execution of downsampling, matrix conversion, and visual aid
+# Date Last Modified: 31-Oct-2026
+# Purpose: This Python file acts as a foundation for the maze. It supports the execution of downsampling and matrix conversion
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -25,9 +25,3 @@ exit_position = (20, int(exit))
 
 # print ("start:", entrance_position)
 # print ("end:", exit_position)
-
-plt.imshow(maze_binary, cmap='gray_r')
-plt.plot(9,0, marker= 'o', color ='green')
-plt.plot(11,20, marker = 'o', color ='blue')
-plt.title('Maze')
-plt.show()
