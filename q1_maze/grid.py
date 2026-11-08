@@ -10,9 +10,7 @@ maze_img = plt.imread('supportingfiles/maze.png')
 
 maze_2d_shape = maze_img[:,:, 0]
 # print ("2d Maze:", maze_2d_shape.shape)
-
 maze_21x21 = maze_2d_shape[::10, ::10] 
-
 maze_binary = np.where(maze_21x21>0.5, 0, 1)
 # print(maze_binary.shape)
 # print(maze_binary)
