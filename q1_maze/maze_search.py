@@ -225,6 +225,7 @@ elif approach == '2':
     fig.savefig(filename)
     print(f'Las Vegas route saved to {filename}')
     plt.show()
+    plt.close()
 
 else:
     raise ValueError("Invalid input. Please enter '1' for DFS or '2' for Las Vegas approach.")
