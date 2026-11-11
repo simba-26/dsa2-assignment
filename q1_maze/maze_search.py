@@ -2,6 +2,7 @@
 # Date Last Modified: 08-Nov-2026
 # Purpose: Script visualises a Depth-First search (with backtracking) and a Las Vegas random search. 
 #          It utilises the downsampled version of the maze.img generated in grid.py.
+# References: 
 
 import random
 import os
@@ -79,16 +80,19 @@ def las_vegas_algorithm(maze, start, end, step_limit=200):
             and move not in visited
         ]
 
-        # This breaks the algorithm when the current route has no valid unvisited positions left (i.e., it reaches a dead end).
+        # This deals with dead end issues and attempts to restart the random las vegas search
         if not valid_positions:
-            break 
+            current_vegas = start
+            visited = {start} # Clear visited history to restart search
+            vegas_route =[start] 
+            continue # Loop restarts
 
         # Stochastic decision-making used to select a random open, valid position. 
         # The current_vegas postion is added to the visited list to prevent revisiting this position.
         # The path records each step, and the step count increases by 1. This helps keep track of step count to ensure algorithm stays within the 200-step limit.     
-        current_vegas = random.choice(valid_positions)
-        visited.add(current_vegas)
-        vegas_route.append(current_vegas)
+        current_vegas = random.choice(valid_positions) # picks random choice from valid unvisited position
+        visited.add(current_vegas) # Adds new position to visited set to avoid it being re-visited
+        vegas_route.append(current_vegas) # Helps keep record of all steps taken 
         steps += 1
 
     vegas_route_successful = current_vegas == end
@@ -204,8 +208,8 @@ elif approach == '2':
         print('SUCCESSFUL! Reached exit within step limit.')
     elif steps >= 200:
         print('Unsuccessful! Exit was not reached within step limit')
-    else:
-        print('Unsuccessful! Blocked, hit a dead end.')
+    # else:
+    #     print('Unsuccessful! Blocked, hit a dead end.')
     
     fig, ax = plt.subplots(figsize=(8,8))
     ax.imshow(maze_binary, cmap='gray_r')

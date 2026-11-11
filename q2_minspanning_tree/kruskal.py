@@ -1,5 +1,5 @@
 # Author: Surinder Matharu
-# Date Last Modified: 09-Nov-2026
+# Date Last Modified: 10-Nov-2026
 # Purpose: 
 # References: 
 
@@ -15,7 +15,7 @@ def MyMinimumSpannigTree(Graph) -> nx.Graph:
     #                   It then extracts all nodes from the original graph inputs (i.e. exampleMST1, 2 or 3) and copies them into the mst variable.                     
     mst = nx.Graph()
     mst.add_nodes_from(Graph.nodes(data=True))
-    route_history = [mst.copy()]
+    route_history = []
 
    # In Kruskal's algorithm, a disjoint-set union/union by rank structure helps effciently detect cycles. 
    # parent = nx supports flexible lables (e.g. A, B, C - as illustrated in below mst examples, so a dictionary lets each node serve as its own key.
@@ -24,7 +24,7 @@ def MyMinimumSpannigTree(Graph) -> nx.Graph:
     rank = {node: 0 for node in Graph.nodes}
 
     # Path compression: Checks current node, if it does not equal parent node it recursively travels up the path to find parent. 
-    #                   It then points each node along the path directly to it, flattening the tree and speeding up future lookups.
+    #                   It then points each node along the path directly to it, flattening the tree and speeding up futurenlookups.
     def find (node):
         if parent[node] != node:
             parent[node] = find(parent[node])
@@ -102,16 +102,16 @@ if __name__ == '__main__':
     #   The edges in the final MSTs after running the Kruskal algorithm
     for name, graph in graph_tests.items():
         print(f'RUNNING {name}')
-        mst_flow = MyMinimumSpannigTree(graph)
+        route_history = MyMinimumSpannigTree(graph)
 
         print('Edges present in the MST:')
-        for edge in mst_flow[-1].edges(data=True): 
+        for edge in route_history[-1].edges(data=True): 
             print(edge)
 
         # Relies on plt and nx to generate graphs and animation display
         fig, ax = plt.subplots(figsize=(8,8))
         graph = graph.copy()
-        mst_graph = mst_flow[-1]
+        mst_graph = route_history[-1]
         pos = nx.circular_layout(graph) # Circular layout is fixed for all nodes
 
         # Animate over the edges of the graph
@@ -120,35 +120,38 @@ if __name__ == '__main__':
 
         def update(frame):
             ax.clear()
-            # Draws graph nodes
+            # Sketches the nodes in lightgray circles.
             nx.draw(mst_graph, pos, with_labels=True, ax=ax, node_color='lightgray', edge_color='lightgray', node_size=1000)
             nx.draw_networkx_labels (graph, pos, ax=ax, font_weight='bold')
 
-            # Accumulates total MST state up to current frame
-            current_mst = mst_flow[frame]
+            # Sketch out the orginal edges with dashed lines
+            nx.draw_networkx_edges(graph, pos, ax=ax, edge_color='lightgray', width=1.5, style='dashed')
 
-            # Incrementally draws labels and edges 
+            # Accumulates total MST state up to current frame (snapshot)
+            current_mst = route_history[frame]
+
+            # Incrementally draws labels and edges - The selected Kruskal edges are sketched in black with weights illustarted in boxes.
             if current_mst.edges():
                 nx.draw_networkx_edges(current_mst, pos, ax=ax, width=2, edge_color='black')
                 current_edge_labels = nx.get_edge_attributes(current_mst, 'weight')
                 nx.draw_networkx_edge_labels(current_mst, pos, ax=ax, edge_labels=current_edge_labels, bbox=dict(boxstyle='round,pad=0.3', fc='white', ec='black'))
                 
                 # Sets frame titles 
-                ax.set_title(f'Kruskal {frame + 1} of {len(mst_flow)}')
+                ax.set_title(f'Kruskal {frame} of {len(route_history) -1}')
 
         # Intialises animation sequence
         animation = FuncAnimation(
             fig,
             update,
-            frames=len(mst_flow),
+            frames=len(route_history),
             interval=1000,
             repeat=False,
         )
         # Animation frames are saved as a GIF within the kruskal_graphs folder.
         dir_save = os.path.join("kruskal_graphs")
         os.makedirs(dir_save, exist_ok=True) 
-        filename = os.path.join(dir_save, "kruskal_mst.gif")
-        print(f"Saving {len(mst_flow)} frames as GIF may take a while. Please be patient...")
+        filename = os.path.join(dir_save, f"{name}.gif")
+        print(f"Saving {len(route_history)} frames as GIF may take a while. Please be patient...")
         animation.save(filename, writer='pillow', fps=20)
         print(f'Kruskal Minimum Spanning Tree saved to: {filename}')
         plt.show()
