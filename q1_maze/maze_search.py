@@ -1,5 +1,5 @@
 # Author: Surinder Matharu
-# Date Last Modified: 08-Nov-2026
+# Date Last Modified: 12-Nov-2026
 # Purpose: Script visualises a Depth-First search (with backtracking) and a Las Vegas random search. 
 #          It utilises the downsampled version of the maze.img generated in grid.py.
 # References: 

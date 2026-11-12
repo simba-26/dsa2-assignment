@@ -1,5 +1,5 @@
 # Author: Surinder Matharu
-# Date Last Modified: 10-Nov-2026
+# Date Last Modified: 12-Nov-2026
 # Purpose: 
 # References: 
 
@@ -123,7 +123,7 @@ if __name__ == '__main__':
             # Sketches the nodes in lightgray circles.
             nx.draw(mst_graph, pos, with_labels=True, ax=ax, node_color='lightgray', edge_color='lightgray', node_size=1000)
             nx.draw_networkx_labels (graph, pos, ax=ax, font_weight='bold')
-
+            
             # Sketch out the orginal edges with dashed lines
             nx.draw_networkx_edges(graph, pos, ax=ax, edge_color='lightgray', width=1.5, style='dashed')
 
