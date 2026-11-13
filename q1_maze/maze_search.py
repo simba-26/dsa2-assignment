@@ -2,7 +2,21 @@
 # Date Last Modified: 12-Nov-2026
 # Purpose: Script visualises a Depth-First search (with backtracking) and a Las Vegas random search. 
 #          It utilises the downsampled version of the maze.img generated in grid.py.
-# References: 
+
+#  References: Sedgewick, R., & Wayne, K. (2014). Algorithms, Part II. Addison-Wesley Professional.
+#    Horowitz, E., Sahni, S., & Rajasekaran, S. (1998). Computer algorithms (Vol. 267). New York, NY, USA:: Computer Science Press.
+#    Skiena, S. S., & Skiena, S. S. (1998). The algorithm design manual (Vol. 2). New York: springer.
+#    VoidArchive (2026). maze-solver[Source Code]. Available at: https://github.com/VoidArchive/maze-solver (Accessed 01-11-206)
+#    ELKARI, B., OURABAH, L., SEKKAT, H., HSAINE, A., ESSAIOUAD, C., BOUARGANE, Y., & El Moutaouakil, K. (2024). Exploring Maze Navigation: A Comparative Study of DFS, BFS, and A* Search Algorithms. Statistics, Optimization & Information Computing, 12(3), 761-781.
+#    Matias1171314 (2026). 42-A-Maze-ing[Source Code]. Available at: https://github.com/Matias171314/42-A-Maze-ing (Accessed 19-10-2026)
+#    Khanh, N. T. (2025). DEVELOPING A SIMULATION TOOL FOR MAZE-SOLVING ROBOT PROGRAMMING USING PYTHON. HNUE Journal of Science: Journal of Educational Science, 157-167.
+#    Vijaya, J., Baghel, A. K., & Mishra, A. S. (2024, March). Dynamic Maze Solver: Integrating Advanced Algorithms for Optimal Path-finding in Varied Environments. In 2024 IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI) (2(1), 1-6). IEEE.
+#    Matplotlib (2026). Matplotlib. Available at: https://matplotlib.org/stable/gallery/index (Accessed 05-11-2026)
+#    GeeksforGeeks (2026). Matplotlib.animation.Funcanimation class in Python. Available at: https://www.geeksforgeeks.org/python/matplotlib-animation-funcanimation-class-in-python/ (Accessed 30-11-2026)
+#    Matplotlib (2026). Animations Using Matplotlib. Available at: https://matplotlib.org/stable/users/explain/animations/animations.html (Accessed 05-11-2026)
+#    W3Schools (2026). Matplot Markers. Available at: https://www.w3schools.com/python/matplotlib_markers.asp (Accessed 05-11-2026)
+#    GeeksforGeeks (2026). Linestyles in Matplotlib Python. Available at: https://www.geeksforgeeks.org/python/linestyles-in-matplotlib-python/ (Accessed 01-11-2026)
+#    Reintech (2026). Understanding Backtracking in Python. Available at: https://reintech.io/blog/understanding-backtracking-in-python-tutorial (Accessed 02-11-2026)
 
 import random
 import os
@@ -62,7 +76,7 @@ def las_vegas_algorithm(maze, start, end, step_limit=200):
     directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
     visited = {start}
 
-    # While condition: Randomised walk continue until it finds the exit, reaches a dead end, or hits the 200-step limit.
+    # While condition: Randomised walk continue until it finds the exit or hits the 200-step limit.
     while current_vegas != end and steps < step_limit:
         # Splits the current_vegas position into separate row and column variables.
         row, col = current_vegas

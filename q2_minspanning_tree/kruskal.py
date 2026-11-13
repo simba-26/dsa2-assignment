@@ -2,6 +2,16 @@
 # Date Last Modified: 12-Nov-2026
 # Purpose: 
 # References: 
+#    Matplotlib (2026). Matplotlib. Available at: https://matplotlib.org/stable/gallery/index (Accessed 05-11-2026)
+#    GeeksforGeeks (2026). Matplotlib.animation.Funcanimation class in Python. Available at: https://www.geeksforgeeks.org/python/matplotlib-animation-funcanimation-class-in-python/ (Accessed 30-11-2026)
+#    Matplotlib (2026). Animations Using Matplotlib. Available at: https://matplotlib.org/stable/users/explain/animations/animations.html (Accessed 05-11-2026)
+#    W3Schools (2026). Matplot Markers. Available at: https://www.w3schools.com/python/matplotlib_markers.asp (Accessed 05-11-2026)
+#  NetworkX (2026). UnionFind.union. Available at: https://networkx.org/documentation/stable/reference/generated/networkx.utils.union_find.UnionFind.union.html (Accessed (08-11-2026)
+#  NetworksX (2026). Weighted Graph. Available at: https://networkx.org/documentation/stable/auto_examples/drawing/plot_weighted_graph.html (Accessed 09-11-2026)
+#  GeeksforGeeks (2026). Kruskal's Minimum Spanning Tree (MST) Algorithim. Available at: https://www.geeksforgeeks.org/dsa/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/ (Accessed 07-11-2026)
+#  GeeksforGeeks (2026). Kruskal's Algorithm in Python. Avsilable at: https://www.geeksforgeeks.org/python/kruskals-algorithm-in-python/ (Accessed 06-11-2026)
+#  StackOverflow (2026). How to draw directed graphs using networkx in Python. Available at: https://stackoverflow.com/questions/20133479/how-to-draw-directed-graphs-using-networkx-in-python (Accessed 10-11-2026)
+#  Cousty, J., Najman, L., Perret, B., & Maia, D. S. (2026). Playing with Kruskal: A State-of-the-Art Report on Watershed Cuts. Journal of Mathematical Imaging and Vision, 68(5), 65.
 
 import os
 import networkx as nx

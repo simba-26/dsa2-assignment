@@ -3,7 +3,10 @@
 # Purpose: Build a recursive traversal that iterates through a list of colours ['blue', 'red', or 'green') and follows defined instructions for each colour. 
 #             Return the indices visited. 
 # References: 
-
+#            Lee, K. D., & Hubbard, S. (2015). Recursion. In Data Structures and Algorithms with Python (pp. 67-90). Cham: Springer International Publishing.
+#            W3Schools (2026). Python Recursion. Available at: https://www.w3schools.com/python/python_recursion.asp (Accessed 08-11-2026)
+#            OpenBookProject (2026). 18.Recursion. Available at: https://openbookproject.net/thinkcs/python/english3e/recursion.html (Accessed at 11-11-2026)
+#            CodeAcademy (2026). Recursion: Python. Available at: https://www.codecademy.com/learn/learn-recursion-python/modules/recursion-python/cheatsheet. (Accessed at 10-11-2026)
 def follow_instructions(instructions: list[str]) -> list[int]:
 
 # Base Case. This section checks the boundaries

@@ -1,7 +1,12 @@
 # Author: Surinder Matharu
 # Date Last Modified: 31-Oct-2026
 # Purpose: This Python file acts as a foundation for the maze. It supports the execution of downsampling and matrix conversion
-# References: 
+#  References: Sedgewick, R., & Wayne, K. (2014). Algorithms, Part II. Addison-Wesley Professional.
+#              Horowitz, E., Sahni, S., & Rajasekaran, S. (1998). Computer algorithms (Vol. 267). New York, NY, USA:: Computer Science Press.
+#              Skiena, S. S., & Skiena, S. S. (1998). The algorithm design manual (Vol. 2). New York: springer.
+#              VoidArchive (2026). maze-solver[Source Code]. Available at: https://github.com/VoidArchive/maze-solver (Accessed 01-11-2016)
+
+import random
 
 import matplotlib.pyplot as plt
 import numpy as np
