@@ -74,7 +74,7 @@ if __name__ == '__main__':
            ('A','B', 1), ('A','D', 4), ('A','E', 3), 
            ('B','C', 5), ('B','E', 6), 
            ('C','E', 2),
-           ('D','B', 2), ('D','E', 7),])
+           ('D','B', 2), ('D','E', 7)])
             
         return mst_2    
     
@@ -116,7 +116,7 @@ if __name__ == '__main__':
 
         # Animate over the edges of the graph
         mst_edges = list(mst_graph.edges())
-        edge_labels = nx.get_edge_attributes(mst_graph, 'weight')
+        edge_labels = nx.get_edge_attributes(graph, 'weight')
 
         def update(frame):
             ax.clear()
@@ -124,13 +124,14 @@ if __name__ == '__main__':
             nx.draw(mst_graph, pos, with_labels=True, ax=ax, node_color='lightgray', edge_color='lightgray', node_size=1000)
             nx.draw_networkx_labels (graph, pos, ax=ax, font_weight='bold')
             
-            # Sketch out the orginal edges with dashed lines
+            # Sketch out the orginal edges with dashed lines and their weights in lightgray
             nx.draw_networkx_edges(graph, pos, ax=ax, edge_color='lightgray', width=1.5, style='dashed')
-
+            nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels, font_color='lightgray', font_size=9)
+        
             # Accumulates total MST state up to current frame (snapshot)
             current_mst = route_history[frame]
-
-            # Incrementally draws labels and edges - The selected Kruskal edges are sketched in black with weights illustarted in boxes.
+        
+            # Incrementally draws labels and edges - The selected Kruskal edges are sketched in black with weights illustrated in boxes.
             if current_mst.edges():
                 nx.draw_networkx_edges(current_mst, pos, ax=ax, width=2, edge_color='black')
                 current_edge_labels = nx.get_edge_attributes(current_mst, 'weight')

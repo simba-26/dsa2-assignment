@@ -1,6 +1,6 @@
 # Author: Surinder Matharu
 # Date Last Modified: 12-Nov-2026
-# Purpose: Build a recursive traversal that iterates through a list of colours ['blue', 'red', or 'green') and follows defnined instructions for each colour. 
+# Purpose: Build a recursive traversal that iterates through a list of colours ['blue', 'red', or 'green') and follows defined instructions for each colour. 
 #             Return the indices visited. 
 # References: 
 
